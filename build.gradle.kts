@@ -18,17 +18,3 @@ plugins {
 
 }
 
-val iosArtifactModules = listOf(
-    ":shared" to "ASShared",
-)
-
-tasks.register("assembleSharedIosArtifacts") {
-    group = "build"
-    description = "Builds the aggregated iOS XCFramework artifacts in each source module's build directory."
-
-    dependsOn(
-        iosArtifactModules.map { (path, frameworkName) ->
-            "$path:assemble${frameworkName}ReleaseXCFramework"
-        }
-    )
-}

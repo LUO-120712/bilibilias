@@ -31,7 +31,6 @@ room3 {
 }
 
 dependencies {
-    add("kspCommonMainMetadata", libs.androidx.room3.compiler)
     add("kspAndroid", libs.androidx.room3.compiler)
     add("kspIosArm64", libs.androidx.room3.compiler)
     add("kspIosSimulatorArm64", libs.androidx.room3.compiler)

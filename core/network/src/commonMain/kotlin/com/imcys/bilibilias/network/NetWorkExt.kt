@@ -12,6 +12,7 @@ import io.ktor.client.statement.HttpResponse
 import io.ktor.client.statement.request
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.flow
@@ -94,7 +95,7 @@ inline fun <reified Data> HttpClient.httpRequest(
         } catch (e: Exception) {
             emit(NetWorkResult.Error(null, null, e.message ?: ""))
         }
-    }.flowOn(Dispatchers.Default)
+    }.flowOn(Dispatchers.IO)
 
 inline fun <reified Data> HttpClient.httpRequest(
     adapter: NetWorkAdapter<Data>,
@@ -118,7 +119,7 @@ inline fun <reified Data> HttpClient.httpRequest(
         } catch (e: Exception) {
             emit(NetWorkResult.Error(null, null, e.message ?: ""))
         }
-    }.flowOn(Dispatchers.Default)
+    }.flowOn(Dispatchers.IO)
 
 @PublishedApi
 internal suspend fun <Data> FlowCollector<NetWorkResult<Data>>.handleSuccess(

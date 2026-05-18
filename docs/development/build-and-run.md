@@ -106,7 +106,7 @@ ABI：
 构建 iOS 可导入 `XCFramework`：
 
 ```bash
-./gradlew assembleSharedIosArtifacts
+./gradlew :shared:assembleASSharedReleaseXCFramework
 ```
 
 详细说明见 [iOS 导入产物](./ios-artifacts.md)。
